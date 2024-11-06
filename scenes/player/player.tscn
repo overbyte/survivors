@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1k1rpau48s6h"]
+
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_lmuw1"]
+[ext_resource type="PackedScene" uid="uid://br0mafmrbxoc5" path="res://scenes/ability/sword_ability_controller/sword_ability_controller.tscn" id="2_0tnhp"]
+[ext_resource type="Texture2D" uid="uid://cca84rugpq2ju" path="res://scenes/player/player.png" id="2_m87up"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hpvek"]
+radius = 4.0
+height = 14.0
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 0
+script = ExtResource("1_lmuw1")
+metadata/_edit_vertical_guides_ = [-117.0]
+
+[node name="AbilityManager" type="Node" parent="."]
+
+[node name="SwordAbilityController" parent="AbilityManager" instance=ExtResource("2_0tnhp")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -17)
+texture = ExtResource("2_m87up")
+hframes = 6
+vframes = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -7)
+shape = SubResource("CapsuleShape2D_hpvek")
