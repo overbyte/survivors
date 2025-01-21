@@ -13,6 +13,7 @@ height = 14.0
 [node name="BasicEnemy" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 8
 collision_mask = 9
+motion_mode = 1
 script = ExtResource("1_ha64t")
 
 [node name="Area2D" type="Area2D" parent="."]
