@@ -8,12 +8,17 @@ func _ready():
 	(health_component as HealthComponent).died.connect(on_died)
 	
 func on_died():
+	# generate a random number from 0 to 1 and check against drop_percent
+	if randf() > drop_percent:
+		return
+	
 	if vial_scene == null:
 		return
 	
 	if not owner is Node2D:
 		return
 	
+	# spawn vial on owner position
 	var spawn_position = (owner as Node2D).global_position
 	var vial_instance = vial_scene.instantiate() as Node2D
 	owner.get_parent().add_child(vial_instance)
